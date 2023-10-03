@@ -12,7 +12,7 @@
 /*
  * initialize module
  */
-var min = __dirname + '/min/lib/';
+var min = __dirname + '/lib/';
 var minNormal = min + 'normal/index.js';
 var minLodash = min + 'lodash/index.js';
 
@@ -29,12 +29,12 @@ var minLodash = min + 'lodash/index.js';
  * @param {Boolean} [lodash] - flag
  * @return {Object}
  */
-function arc4(algorithm, password, lodash) {
+function arc4(algorithm, password, useStreamMode = false, lodash = null) {
 
-  if (!lodash) {
-    return require(minNormal)(algorithm, password);
-  }
-  return require(minLodash)(algorithm, password);
+    if (!lodash) {
+        return require(minNormal)(algorithm, password, useStreamMode);
+    }
+    return require(minLodash)(algorithm, password, useStreamMode);
 }
 module.exports = arc4;
 
@@ -49,7 +49,7 @@ module.exports = arc4;
  */
 function normal(algorithm, password) {
 
-  return require(minNormal)(algorithm, password);
+    return require(minNormal)(algorithm, password);
 }
 module.exports.normal = normal;
 
@@ -64,6 +64,6 @@ module.exports.normal = normal;
  */
 function lodash(algorithm, password) {
 
-  return require(minLodash)(algorithm, password);
+    return require(minLodash)(algorithm, password);
 }
 module.exports.lodash = lodash;

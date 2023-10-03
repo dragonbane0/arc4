@@ -23,10 +23,10 @@
     "email": "hex7c0@gmail.com"
   },
   "directories": {
-    "lib": "./min/lib",
+    "lib": "./lib",
     "example": "./examples"
   },
-  "main": "index.min.js",
+  "main": "index.js",
   "dependencies": {
     "lodash": "4.17.5"
   },
